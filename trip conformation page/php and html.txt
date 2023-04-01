@@ -1,0 +1,71 @@
+<?php
+if(isset($_POST['name'])){
+
+
+$server = "localhost" ;
+$username = "root" ;
+$password = "";
+$con = mysqli_connect($server,$username, $password);
+if(!$con){
+    die("connection to this database failed due to" . 
+    mysqli_connect_error());
+
+}
+// echo "Success connecting to the db";
+$sno =$_post['sno'];
+$name = $_post['name'];
+$gender =$_post['gender'];
+$age = $_post['age'];
+$email id = $_post['email id'];
+$phone = $_post['phone number'];
+$other information= $_post['other information'];
+$sql = "  INSERT INTO 'trip'.'trip' ('sno', 'name', 'Age', 'gender', 'mail id', 'phone number', 'other information', 'dt') VALUES ( '$sno','$name', '$Age', '$gender', '$mail id', '$phone number', 
+'$otherinformation', current_timestamp());";
+echo $sql;
+if($con->query($sql)==true){
+    echo "Successfully inserted";
+}
+    else{
+        "ERROR: $sql <br> &conn->error";
+    
+}
+$con->close();
+}  
+?>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME TO TRAVEL FORM</title>
+    <link rel= "stylesheet" href="style.css">
+</head>
+<body>
+    <img  class="bg" src="bg.jpeg.jpg" alt="DAYANAND SAGAR INSTUTITE OF TECHNOLOGY"
+    <div class="container">
+        <h3>WELCOME TO DAYANAND SAGAR INSTUTITE OF TECHNOLOGY US TRIP FORM</h3>
+        <p> Enter your details  and submit this form to confirm your paticipation in the trip </p>
+<p class="submitMsg">Thanks for submitting your form. We are happy to seeyou joining us for the US trip</p>
+        <form action="index.php" method="post">
+            <input type="text" name="name" id="name" placeholder="Enter your name">
+            <input type="text" name="age" id="age" placeholder="Enter your Age">
+            <input type="text" name="gender" id="gender" placeholder="Enter your gender">
+            <input type="text" name="email" id="email id" placeholder="Enter your mail id">
+            <input type="text" name="phone number" id="phone number" placeholder="Enter your phone number">
+            <textarea name="desc" id="desc" cols="30" rows="10"
+                placeholder="Enter any other information here"></textarea>
+               <button class="btn">Submit</button>
+               <button class="btn">Reset</button>
+        </form>
+    </div>
+    <script src="index.js"></script>
+   INSERT INTO 'trip' ('sno', 'name', 'Age', 'gender', 'mail id', 'phone number', 'other information', 'dt') VALUES ('1', 'test name ', '23', 'female', 'this@this.com', '8431468773', 'this is my site ', current_timestamp());
+    
+</body>
+</html>
